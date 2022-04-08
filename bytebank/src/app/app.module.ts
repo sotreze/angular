@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { ExtratoComponent } from './extrato/extrato.component';
 import { registerLocaleData } from '@angular/common';
-import localePt from '@angular/common/locales/pt'
+import localePt from '@angular/common/locales/pt';
 
 registerLocaleData(localePt, 'pt');
 
