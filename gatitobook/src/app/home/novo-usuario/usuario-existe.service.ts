@@ -9,7 +9,7 @@ import { first, map, switchMap } from 'rxjs/operators';
 export class UsuarioExisteService {
   constructor(private novoUsuarioService: NovoUsuarioService) {}
 
-  usuarioJaExiste() {
+  usuarioJaExite() {
     return (control: AbstractControl) => {
       return control.valueChanges.pipe(
         switchMap((nomeUsuario) =>

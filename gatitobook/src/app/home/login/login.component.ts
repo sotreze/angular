@@ -1,6 +1,6 @@
-import { AutenticacaoService } from './../../autenticacao/autenticacao.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AutenticacaoService } from 'src/app/autenticacao/autenticacao.service';
 
 @Component({
   selector: 'app-login',
@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['animais']);
       },
       (error) => {
-        alert('Usuário ou senha inválida!');
+        alert('Usuário ou senha inválido');
         console.log(error);
       }
     );

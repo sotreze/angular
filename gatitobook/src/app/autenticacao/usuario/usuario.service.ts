@@ -5,14 +5,13 @@ import jwt_decode from 'jwt-decode';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UsuarioService {
+  private usuarioSubject = new BehaviorSubject<Usuario>({});
 
-  private usuarioSubject = new BehaviorSubject <Usuario>({});
-
-  constructor(private tokenService: TokenService) { 
-    if(this.tokenService.possuiToken()) {
+  constructor(private tokenService: TokenService) {
+    if (this.tokenService.possuiToken()) {
       this.decodificaJWT();
     }
   }
@@ -38,6 +37,6 @@ export class UsuarioService {
   }
 
   estaLogado() {
-    return this.tokenService.possuiToken;
+    return this.tokenService.possuiToken();
   }
 }
