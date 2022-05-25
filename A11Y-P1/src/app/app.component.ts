@@ -18,5 +18,5 @@ export class AppComponent {
 
   public submit(): void {
     console.log(this.form.value);
-  } 
+  }
 }
