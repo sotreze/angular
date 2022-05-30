@@ -12,18 +12,36 @@ export class KeyboardManagerDirective {
   public manageKeys(event: KeyboardEvent): void {
     switch (event.key) {
       case 'ArrowUp':
-        console.log(this.items);
         console.log('up');
+        this.moveFocus(ArrowDiretion.RIGHT).focus();
         break;
       case 'ArrowDown':
-        console.log('down');
+        this.moveFocus(ArrowDiretion.LEFT).focus();
         break;
       case 'ArrowLeft':
-        console.log('left');
+        this.moveFocus(ArrowDiretion.LEFT).focus();
         break;
       case 'ArrowRight':
-        console.log('right');
+        this.moveFocus(ArrowDiretion.RIGHT).focus();
         break;
     }
   }
+
+  public moveFocus(direction: ArrowDiretion): KeyboardManagedItemDirective {
+    const items = this.items.toArray();
+    const curentSelectedIndex = items.findIndex(item => item.isFocused());
+    const targetElementFocus = items[curentSelectedIndex + direction];
+    if (targetElementFocus) {
+      return targetElementFocus;
+    }
+
+    return direction === ArrowDiretion.LEFT
+      ? items[items.length -1]
+      : items[0];
+  }
+}
+
+enum ArrowDiretion {
+  LEFT =  -1,
+  RIGHT = 1
 }
