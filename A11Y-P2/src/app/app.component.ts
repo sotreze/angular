@@ -12,10 +12,10 @@ export class AppComponent {
   public firstName= 'Marcio';
   public modalRef: ModalRef;
 
-  constructor(private modaService: ModalService) {}
+  constructor(private modalService: ModalService) {}
 
   public show(): void {
-    this.modalRef = this.modaService.open({
+    this.modalRef = this.modalService.open({
       templateRef: this.modalTemplatRef,
       title: 'User Details'
     });
