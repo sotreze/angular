@@ -1,7 +1,14 @@
 <div class="modal-overlay"
 (click)="modalRef.close()"
+(keydown.esc)="modalRef.close()"
 >
-  <div class="modal-content"
+  <div
+    appFocusTrap
+    appFocusBack
+    class="modal-content"
+    role="dialog"
+    aria-modal="true"
+    [attr.aria-label]="config.title"
     (click)="$event.stopPropagation()">
     <h1 class="modal-tilte">{{ config.title }}</h1>
     <!-- conteúdo do modal, template que eu quero exibir-->
